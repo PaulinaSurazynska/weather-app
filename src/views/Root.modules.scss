@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+p {
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+main {
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    background: #fef8f7;
+    display: flex;
+}
+
+
+@media (max-width: 920px) {
+
+    main {
+        flex-direction: column;
+    }
+}
