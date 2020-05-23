@@ -52,7 +52,47 @@
     text-transform: uppercase;
 }
 
+.error {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: red;
+}
+
+.forecast {
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: #65b6bc;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.info {
+    color: #65b6bc;
+    position: absolute;
+    top: calc(50% - 30px);
+}
+
+.city {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.icon {}
+
+.temp {
+    font-size: 5rem;
+}
+
 @media (max-width: 920px) {
+
+    .forecast {
+        width: 100%;
+    }
 
     .wrapper {
         width: 100%;
