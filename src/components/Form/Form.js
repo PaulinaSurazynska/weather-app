@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getWeather, getIcon } from 'utils/api';
+import Input from 'components/Input/Input';
 import styles from './Form.module.scss';
 
 const Form = () => {
@@ -12,9 +13,7 @@ const Form = () => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    if (error) {
-      setError(!error);
-    }
+    if (error) setError(!error);
   };
 
   const getWeatherIcon = (iconId) => {
@@ -47,14 +46,7 @@ const Form = () => {
       <div className={styles.wrapper}>
         <form onSubmit={getTheWeather} className={styles.form}>
           <h1 className={styles.title}>Weather app</h1>
-          <input
-            required
-            className={styles.input}
-            placeholder="enter a city"
-            onChange={handleInputChange}
-            autoComplete="off"
-            name="name"
-          />
+          <Input handleInputChange={handleInputChange} />
           <button className={styles.button} type="submit">
             get weather
           </button>
