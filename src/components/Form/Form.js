@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { API_KEY } from 'utils/api';
+import { getWeather, getIcon } from 'utils/api';
 import styles from './Form.module.scss';
 
 const Form = () => {
@@ -12,7 +12,6 @@ const Form = () => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    // TO DO: some other way to handle hidding error message
     if (error) {
       setError(!error);
     }
@@ -20,7 +19,7 @@ const Form = () => {
 
   const getWeatherIcon = (iconId) => {
     axios
-      .get(`http://openweathermap.org/img/w/${iconId}.png`)
+      .get(getIcon(iconId))
       .then((res) => setIcon(res.config.url))
       .catch((err) => console.log(err));
   };
@@ -28,13 +27,10 @@ const Form = () => {
   const getTheWeather = (e) => {
     e.preventDefault();
     axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${API_KEY}&units=metric`,
-      )
+      .get(getWeather(inputValue))
       .then((response) => response.data)
       .then((res) => {
         setData({ ...res });
-        console.log('%c data from the api:', 'color: green', res);
         if (isForecast) {
           return;
         }
