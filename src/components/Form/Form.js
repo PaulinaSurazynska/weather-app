@@ -15,6 +15,7 @@ const Form = () => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    // toggle error mesage display
     if (error) setError(!error);
   };
 
@@ -32,7 +33,9 @@ const Form = () => {
       .then((response) => response.data)
       .then((res) => {
         setData({ ...res });
+        // if you already show some forecast, do nothing
         if (isForecast) return;
+        // pretty please show the forecast
         setForecast(!isForecast);
         getWeatherIcon(res.weather[0].icon);
       })
