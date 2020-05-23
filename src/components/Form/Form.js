@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getWeather, getIcon } from 'utils/api';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
+import Forecast from 'components/Forecast/Forecast';
 import styles from './Form.module.scss';
 
 const Form = () => {
@@ -31,9 +32,7 @@ const Form = () => {
       .then((response) => response.data)
       .then((res) => {
         setData({ ...res });
-        if (isForecast) {
-          return;
-        }
+        if (isForecast) return;
         setForecast(!isForecast);
         getWeatherIcon(res.weather[0].icon);
       })
@@ -58,11 +57,7 @@ const Form = () => {
       </div>
       <div className={styles.forecast}>
         {isForecast ? (
-          <>
-            <p className={styles.city}>{data.name} </p>
-            <img className={styles.icon} src={icon} alt="icon" />
-            <p className={styles.temp}>{data.main.temp.toFixed(0)}&#730;</p>
-          </>
+          <Forecast city={data.name} temp={data.main.temp} icon={icon} />
         ) : (
           <h2 className={styles.info}>There is no forecast</h2>
         )}

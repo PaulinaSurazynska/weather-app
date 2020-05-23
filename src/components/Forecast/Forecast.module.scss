@@ -1,0 +1,39 @@
+.info {
+    color: #65b6bc;
+    position: absolute;
+    top: calc(50% - 30px);
+}
+
+.city {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.icon {
+    transform: translateX(-1.5rem);
+    animation: animate infinite 2s linear;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(-1.5rem);
+    }
+
+    50% {
+        transform: translateX(1.5rem);
+    }
+
+    100% {
+        transform: translateX(-1.5rem);
+    }
+}
+
+.temp {
+    font-size: 5rem;
+}
+
+@media (max-width: 920px) {
+    .forecast {
+        width: 100%;
+    }
+}
