@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { getWeather, getIcon } from 'utils/api';
 import Input from 'components/Input/Input';
+import Button from 'components/Button/Button';
 import styles from './Form.module.scss';
 
 const Form = () => {
@@ -47,9 +48,7 @@ const Form = () => {
         <form onSubmit={getTheWeather} className={styles.form}>
           <h1 className={styles.title}>Weather app</h1>
           <Input handleInputChange={handleInputChange} />
-          <button className={styles.button} type="submit">
-            get weather
-          </button>
+          <Button />
           {error && (
             <p className={styles.error}>
               Incorrect city name, please try again
